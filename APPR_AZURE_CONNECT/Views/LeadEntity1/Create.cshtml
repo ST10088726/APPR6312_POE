@@ -1,0 +1,72 @@
+﻿@model APPR_AZURE_CONNECT.Models.LeadEntity1
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="DonateDate" class="control-label"></label>
+                <input asp-for="DonateDate" class="form-control" />
+                <span asp-validation-for="DonateDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DonateName" class="control-label"></label>
+                <input asp-for="DonateName" class="form-control" />
+                <span asp-validation-for="DonateName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Item" class="control-label"></label>
+                <input asp-for="Item" class="form-control" />
+                <span asp-validation-for="Item" class="text-danger"></span>
+            </div>
+            <div class="form-group">            
+                    <select name="Categories">
+                        <option value="Category">Clothes</option>
+                        <option value="Category">Non-perishable foods</option>
+                </select>
+                <div class="check-box">
+                    <input class="check" type="checkbox" id="catergory" name="cuscater" value="Category" onclick="EnableDisableTextBox(this)">
+                    <label for="checkCategory">Want to add a custom catergory</label><br>
+                    </div>
+                <label asp-for="Category" class="control-label"></label>
+                <input asp-for="Category" class="form-control" disabled="disabled" id="cat"/>
+                <span asp-validation-for="Category" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control"/>
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");
+        
+    <script type="text/javascript">
+            function EnableDisableTextBox(checkCategory) {
+                var cat = document.getElementById("cat");
+                cat.disabled = checkCategory.checked ? false : true;
+                if (!cat.disabled) {
+                    cat.focus();
+                }
+            }
+        </script>
+    }
+}
