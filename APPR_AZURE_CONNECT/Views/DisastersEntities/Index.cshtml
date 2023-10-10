@@ -28,6 +28,15 @@
             <th>
                 @Html.DisplayNameFor(model => model.RequiredAidTypes)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocatedMoneyLeft)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -48,6 +57,15 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.RequiredAidTypes)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocateGoods)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocateMoney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocatedMoneyLeft)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.DisId">Edit</a> |

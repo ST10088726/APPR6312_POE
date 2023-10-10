@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace APPR_AZURE_CONNECT.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20231005195914_DisasterSet")]
-    partial class DisasterSet
+    [Migration("20231010120258_DisasterSetupDB")]
+    partial class DisasterSetupDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,13 +25,23 @@ namespace APPR_AZURE_CONNECT.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("APPR_AZURE_CONNECT.Models.DisastersEntities", b =>
+            modelBuilder.Entity("APPR_AZURE_CONNECT.Models.DisastersEntites", b =>
                 {
                     b.Property<int>("DisId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisId"));
+
+                    b.Property<string>("AllocateGoods")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AllocateMoney")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllocatedMoneyLeft")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()

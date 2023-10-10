@@ -7,7 +7,7 @@
 
 <h1>Edit</h1>
 
-<h4>DisastersEntities</h4>
+<h4>DisastersEntites</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -38,6 +38,21 @@
                 <label asp-for="RequiredAidTypes" class="control-label"></label>
                 <input asp-for="RequiredAidTypes" class="form-control" />
                 <span asp-validation-for="RequiredAidTypes" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllocateGoods" class="control-label"></label>
+                <input asp-for="AllocateGoods" class="form-control" />
+                <span asp-validation-for="AllocateGoods" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllocateMoney" class="control-label"></label>
+                <input asp-for="AllocateMoney" class="form-control" />
+                <span asp-validation-for="AllocateMoney" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="AllocatedMoneyLeft" class="control-label"></label>
+                <input asp-for="AllocatedMoneyLeft" class="form-control" />
+                <span asp-validation-for="AllocatedMoneyLeft" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />

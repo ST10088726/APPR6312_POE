@@ -19,7 +19,7 @@ namespace APPR_AZURE_CONNECT.Controllers
             _context = context;
         }
 
-        // GET: DisastersEntities
+        // GET: DisastersEntites
         public async Task<IActionResult> Index()
         {
               return _context.Disasters != null ? 
@@ -27,7 +27,7 @@ namespace APPR_AZURE_CONNECT.Controllers
                           Problem("Entity set 'AppDbContext.Disasters'  is null.");
         }
 
-        // GET: DisastersEntities/Details/5
+        // GET: DisastersEntites/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null || _context.Disasters == null)
@@ -35,39 +35,39 @@ namespace APPR_AZURE_CONNECT.Controllers
                 return NotFound();
             }
 
-            var disastersEntities = await _context.Disasters
+            var disastersEntites = await _context.Disasters
                 .FirstOrDefaultAsync(m => m.DisId == id);
-            if (disastersEntities == null)
+            if (disastersEntites == null)
             {
                 return NotFound();
             }
 
-            return View(disastersEntities);
+            return View(disastersEntites);
         }
 
-        // GET: DisastersEntities/Create
+        // GET: DisastersEntites/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: DisastersEntities/Create
+        // POST: DisastersEntites/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("DisId,StartDate,EndDate,Location,Description,RequiredAidTypes")] DisastersEntities disastersEntities)
+        public async Task<IActionResult> Create([Bind("DisId,StartDate,EndDate,Location,Description,RequiredAidTypes,AllocateGoods,AllocateMoney,AllocatedMoneyLeft")] DisastersEntities disastersEntites)
         {
             if (ModelState.IsValid)
             {
-                _context.Add(disastersEntities);
+                _context.Add(disastersEntites);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            return View(disastersEntities);
+            return View(disastersEntites);
         }
 
-        // GET: DisastersEntities/Edit/5
+        // GET: DisastersEntites/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null || _context.Disasters == null)
@@ -75,22 +75,22 @@ namespace APPR_AZURE_CONNECT.Controllers
                 return NotFound();
             }
 
-            var disastersEntities = await _context.Disasters.FindAsync(id);
-            if (disastersEntities == null)
+            var disastersEntites = await _context.Disasters.FindAsync(id);
+            if (disastersEntites == null)
             {
                 return NotFound();
             }
-            return View(disastersEntities);
+            return View(disastersEntites);
         }
 
-        // POST: DisastersEntities/Edit/5
+        // POST: DisastersEntites/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to.
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("DisId,StartDate,EndDate,Location,Description,RequiredAidTypes")] DisastersEntities disastersEntities)
+        public async Task<IActionResult> Edit(int id, [Bind("DisId,StartDate,EndDate,Location,Description,RequiredAidTypes,AllocateGoods,AllocateMoney,AllocatedMoneyLeft")] DisastersEntities disastersEntites)
         {
-            if (id != disastersEntities.DisId)
+            if (id != disastersEntites.DisId)
             {
                 return NotFound();
             }
@@ -99,12 +99,12 @@ namespace APPR_AZURE_CONNECT.Controllers
             {
                 try
                 {
-                    _context.Update(disastersEntities);
+                    _context.Update(disastersEntites);
                     await _context.SaveChangesAsync();
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!DisastersEntitiesExists(disastersEntities.DisId))
+                    if (!DisastersEntitesExists(disastersEntites.DisId))
                     {
                         return NotFound();
                     }
@@ -115,10 +115,10 @@ namespace APPR_AZURE_CONNECT.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            return View(disastersEntities);
+            return View(disastersEntites);
         }
 
-        // GET: DisastersEntities/Delete/5
+        // GET: DisastersEntites/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null || _context.Disasters == null)
@@ -126,17 +126,17 @@ namespace APPR_AZURE_CONNECT.Controllers
                 return NotFound();
             }
 
-            var disastersEntities = await _context.Disasters
+            var disastersEntites = await _context.Disasters
                 .FirstOrDefaultAsync(m => m.DisId == id);
-            if (disastersEntities == null)
+            if (disastersEntites == null)
             {
                 return NotFound();
             }
 
-            return View(disastersEntities);
+            return View(disastersEntites);
         }
 
-        // POST: DisastersEntities/Delete/5
+        // POST: DisastersEntites/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
@@ -145,17 +145,17 @@ namespace APPR_AZURE_CONNECT.Controllers
             {
                 return Problem("Entity set 'AppDbContext.Disasters'  is null.");
             }
-            var disastersEntities = await _context.Disasters.FindAsync(id);
-            if (disastersEntities != null)
+            var disastersEntites = await _context.Disasters.FindAsync(id);
+            if (disastersEntites != null)
             {
-                _context.Disasters.Remove(disastersEntities);
+                _context.Disasters.Remove(disastersEntites);
             }
             
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
-        private bool DisastersEntitiesExists(int id)
+        private bool DisastersEntitesExists(int id)
         {
           return (_context.Disasters?.Any(e => e.DisId == id)).GetValueOrDefault();
         }
