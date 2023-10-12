@@ -20,7 +20,7 @@ namespace APPR_AZURE_CONNECT.Models
         public string RequiredAidTypes { get; set; }
         [DisplayName("Goods purchased")]
         public string AllocateGoods { get; set; }
-        [DisplayName("Money allocated for each disaster")]
+        [DisplayName("Money allocated for disaster")]
         public int AllocateMoney { get; set; }
         [DisplayName("Amount used for purchase of goods")]
         public int AllocatedMoneyLeft { get; set; }
