@@ -22,13 +22,23 @@ namespace APPR_AZURE_CONNECT.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("APPR_AZURE_CONNECT.Models.DisastersEntities", b =>
+            modelBuilder.Entity("APPR_AZURE_CONNECT.Models.DisastersEntites", b =>
                 {
                     b.Property<int>("DisId")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("DisId"));
+
+                    b.Property<string>("AllocateGoods")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("AllocateMoney")
+                        .HasColumnType("int");
+
+                    b.Property<int>("AllocatedMoneyLeft")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()

@@ -3,6 +3,7 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "~/Views/Shared/_Layout.cshtml";
+    var total = 0;
 }
 
 <h1>Index</h1>
@@ -28,6 +29,18 @@
             <th>
                 @Html.DisplayNameFor(model => model.RequiredAidTypes)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocatedMoneyLeft)
+            </th>
+            <th>
+                @Html.DisplayName("Money left after purchase of goods")
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -50,6 +63,18 @@
                 @Html.DisplayFor(modelItem => item.RequiredAidTypes)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.AllocateGoods)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocateMoney)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AllocatedMoneyLeft)
+            </td>
+             <td>
+                @Html.Raw(item.AllocateMoney - item.AllocatedMoneyLeft)
+            </td>
+            <td>
                 <a asp-action="Edit" asp-route-id="@item.DisId">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.DisId">Details</a> |
                 <a asp-action="Delete" asp-route-id="@item.DisId">Delete</a>
@@ -58,3 +83,5 @@
 }
     </tbody>
 </table>
+
+
