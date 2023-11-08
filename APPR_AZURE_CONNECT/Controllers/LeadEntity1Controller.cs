@@ -9,7 +9,7 @@ using APPR_AZURE_CONNECT.Data;
 using APPR_AZURE_CONNECT.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace APPR_AZURE_CONNECT.Controllers.Entity
+namespace APPR_AZURE_CONNECT.Controllers
 {
     [Authorize]
     public class LeadEntity1Controller : Controller

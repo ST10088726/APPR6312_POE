@@ -6,7 +6,7 @@ using APPR_AZURE_CONNECT.Data;
 using APPR_AZURE_CONNECT.Models;
 using Microsoft.EntityFrameworkCore;
 
-namespace APPR_AZURE_CONNECT.Controllers.Home
+namespace APPR_AZURE_CONNECT.Controllers
 {
     public class HomeController : Controller
     {
