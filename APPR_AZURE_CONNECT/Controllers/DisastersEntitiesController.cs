@@ -9,7 +9,7 @@ using APPR_AZURE_CONNECT.Data;
 using APPR_AZURE_CONNECT.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace APPR_AZURE_CONNECT.Controllers
+namespace APPR_AZURE_CONNECT.Controllers.Disaster
 {
     [Authorize]
     public class DisastersEntitiesController : Controller

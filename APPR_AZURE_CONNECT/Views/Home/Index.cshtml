@@ -35,7 +35,7 @@
             </th>
             <th>
                 @Html.DisplayName("Money left after purchase of goods")
-            </th>
+            </th>          
             <th></th>
         </tr>
     </thead>
@@ -71,6 +71,18 @@
                     @Html.Raw(item.AllocateMoney - item.AllocatedMoneyLeft)
                 </td>                
             </tr>
-        }
+        }      
     </tbody>
+    <tfoot>
+        <tr>
+            <td>Total Monetary Donations recieved</td>
+            <td>@Model.Sum(i=>i.AllocateMoney)</td>
+        </tr>
+        <tr>
+            <td>Total Number of Goods recieved</td>
+            <td>@Model.Count()</td>
+        </tr>
+    </tfoot>
 </table>
+
+

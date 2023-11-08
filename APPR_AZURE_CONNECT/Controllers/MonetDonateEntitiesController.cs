@@ -9,7 +9,7 @@ using APPR_AZURE_CONNECT.Data;
 using APPR_AZURE_CONNECT.Models;
 using Microsoft.AspNetCore.Authorization;
 
-namespace APPR_AZURE_CONNECT.Controllers
+namespace APPR_AZURE_CONNECT.Controllers.MonetDonation
 {
     [Authorize]
     public class MonetDonateEntitiesController : Controller
@@ -26,7 +26,7 @@ namespace APPR_AZURE_CONNECT.Controllers
         {
               return _context.MonetDonation != null ? 
                           View(await _context.MonetDonation.ToListAsync()) :
-                          Problem("Entity set 'AppDbContext.MonetDonation'  is null.");
+                          Problem("Entity set 'AppDbContext.MonetDonation'  is null.");                
         }
 
         // GET: MonetDonateEntities/Details/5
