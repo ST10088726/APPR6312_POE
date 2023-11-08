@@ -2,28 +2,29 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
+using APPR_AZURE_CONNECT.Data;
+using APPR_AZURE_CONNECT.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace APPR_AZURE_CONNECT.Controllers
 {
-    [Authorize]
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-
-        public HomeController(ILogger<HomeController> logger)
+        
+        private readonly AppDbContext _context;
+        public HomeController(AppDbContext context)
         {
-            _logger = logger;
+            _context = context;
         }
 
-        public IActionResult Index()
-        {
-            return View();
-        }
 
-        public IActionResult Privacy()
+        public async Task<IActionResult> Index()
         {
-            return View();
+            return _context.Disasters != null ?
+                         View(await _context.Disasters.ToListAsync()) :
+                         Problem("Entity set 'AppDbContext.Disasters'  is null.");
         }
+      
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
