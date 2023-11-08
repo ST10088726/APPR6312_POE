@@ -1,7 +1,76 @@
-﻿@{
+﻿@model IEnumerable<APPR_AZURE_CONNECT.Models.DisastersEntities>
+@{
     ViewData["Title"] = "Home Page";
 }
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-</div>
+<h1>Index</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RequiredAidTypes)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateGoods)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocateMoney)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AllocatedMoneyLeft)
+            </th>
+            <th>
+                @Html.DisplayName("Money left after purchase of goods")
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StartDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.EndDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RequiredAidTypes)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllocateGoods)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllocateMoney)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AllocatedMoneyLeft)
+                </td>
+                <td>
+                    @Html.Raw(item.AllocateMoney - item.AllocatedMoneyLeft)
+                </td>                
+            </tr>
+        }
+    </tbody>
+</table>
